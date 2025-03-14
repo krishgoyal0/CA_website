@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite CA Partners | Professional Chartered Accountancy Services</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="sticky-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="Elite CA Partners">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+   
+    <!-- Hero Section -->
+    <div class="hero ">
+        <div class="hero-content">
+            <div class="phot">
+                <div class="flexer">
+                    <h1 class="hero-title">
+                        Strategic Financial <span id="typed-text"></span>
+                    </h1>
+                </div>
+            </div>
+            
+            <p class="hero-subtitle">Comprehensive CA Services for Business Growth</p>
+            <button class="cta-button">Schedule Consultation</button>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="services-grid">
+            <div class="service-card animate-on-scroll">
+                <i class="fas fa-chart-line card-icon"></i>
+                <h3>Audit & Assurance</h3>
+                <p>Comprehensive financial audits with regulatory compliance</p>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <i class="fas fa-calculator card-icon"></i>
+                <h3>Tax Planning</h3>
+                <p>Strategic tax solutions for individuals & corporations</p>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <i class="fas fa-balance-scale card-icon"></i>
+                <h3>Business Advisory</h3>
+                <p>Financial strategy and growth planning services</p>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <i class="fas fa-file-contract card-icon"></i>
+                <h3>Compliance Management</h3>
+                <p>Complete regulatory compliance solutions</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-form">
+            <!-- Contact form content -->
+        </div>
+    </section>
+
+    <script>
+        // Enhanced Scroll Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    if(entry.target.classList.contains('service-card')) {
+                        entry.target.style.transitionDelay = entry.target.dataset.delay || '0s';
+                    }
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach((el, index) => {
+            el.dataset.delay = `${index * 0.1}s`;
+            observer.observe(el);
+        });
+
+        // Smooth Element Transitions
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseover', () => {
+                card.querySelector('.card-icon').style.transform = 'rotate(10deg) scale(1.1)';
+            });
+            
+            card.addEventListener('mouseout', () => {
+                card.querySelector('.card-icon').style.transform = 'rotate(0) scale(1)';
+            });
+        });
+
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.style.transform = `translateY(${scrolled * -0.1}px)`;
+            });
+        });
+    </script>
+   
+   
+
+   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <script>
+        var typed = new Typed("#typed-text", {
+            strings: [" Excellence", " Success", " Growth"], // Words that change
+            typeSpeed: 50,   
+            backSpeed: 25,   
+            backDelay: 1000, 
+            loop: true,
+        });
+    </script>
+    
+</body>
+</html>
