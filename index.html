@@ -6,38 +6,47 @@
     <title>Elite CA Partners | Professional Chartered Accountancy Services</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="sticky-nav">
-        <div class="nav-container">
-            <div class="logo">
-                <img src="logo.png" alt="Elite CA Partners">
-            </div>
-            <ul class="nav-links">
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </div>
+    <nav class="navbar">
+        <div class="image-container"><img src="a.jpg" alt="Description" width="300" height="200"></div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </nav>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+    </script>
 
    
     <!-- Hero Section -->
-    <div class="hero ">
-        <div class="hero-content">
-            <div class="phot">
-                <div class="flexer">
-                    <h1 class="hero-title">
-                        Strategic Financial <span id="typed-text"></span>
-                    </h1>
-                </div>
-            </div>
-            
-            <p class="hero-subtitle">Comprehensive CA Services for Business Growth</p>
-            <button class="cta-button">Schedule Consultation</button>
-        </div>
+    <div class="mid-slide">
+        <h1 class="hero-title" >
+            Strategic Financial <span id="typed-text"></span>
+        </h1>
+        <p class="hero-subtitle">Comprehensive CA Services for Business Growth</p>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <script>
+        var typed = new Typed("#typed-text", {
+            strings: [" Excellence", " Success", " Growth"], // Words that change
+            typeSpeed: 50,   
+            backSpeed: 25,   
+            backDelay: 1000, 
+            loop: true,
+        });
+    </script>
 
     <!-- Services Section -->
     <section id="services" class="services-section">
@@ -68,61 +77,70 @@
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="contact-form">
+            <a href="www.google.com" style="text-decoration: none; color: #c96d27;"><h5>"Feel free to get in touch."</h5></a>
             <!-- Contact form content -->
         </div>
     </section>
 
+
+    <!-- FOOTER -->
+    <div class="footer-basic">
+        <footer>
+            <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Home</a></li>
+                <li class="list-inline-item"><a href="#">Services</a></li>
+                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">Company Name © 2018</p>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
     <script>
         // Enhanced Scroll Animations
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    if(entry.target.classList.contains('service-card')) {
-                        entry.target.style.transitionDelay = entry.target.dataset.delay || '0s';
-                    }
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                if(entry.target.classList.contains('service-card')) {
+                    entry.target.style.transitionDelay = entry.target.dataset.delay || '0s';
                 }
-            });
+            }
+        });
         }, { threshold: 0.15 });
 
         document.querySelectorAll('.animate-on-scroll').forEach((el, index) => {
-            el.dataset.delay = `${index * 0.1}s`;
-            observer.observe(el);
+        el.dataset.delay = `${index * 0.1}s`;
+        observer.observe(el);
         });
 
         // Smooth Element Transitions
         document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mouseover', () => {
-                card.querySelector('.card-icon').style.transform = 'rotate(10deg) scale(1.1)';
-            });
-            
-            card.addEventListener('mouseout', () => {
-                card.querySelector('.card-icon').style.transform = 'rotate(0) scale(1)';
-            });
+        card.addEventListener('mouseover', () => {
+            card.querySelector('.card-icon').style.transform = 'rotate(10deg) scale(1.1)';
+        });
+        
+        card.addEventListener('mouseout', () => {
+            card.querySelector('.card-icon').style.transform = 'rotate(0) scale(1)';
+        });
         });
 
         // Parallax Effect
         window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            document.querySelectorAll('.service-card').forEach(card => {
-                card.style.transform = `translateY(${scrolled * -0.1}px)`;
-            });
+        const scrolled = window.pageYOffset;
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.style.transform = `translateY(${scrolled * -0.1}px)`;
+        });
         });
     </script>
    
    
 
-   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
-    <script>
-        var typed = new Typed("#typed-text", {
-            strings: [" Excellence", " Success", " Growth"], // Words that change
-            typeSpeed: 50,   
-            backSpeed: 25,   
-            backDelay: 1000, 
-            loop: true,
-        });
-    </script>
+   
     
 </body>
 </html>
