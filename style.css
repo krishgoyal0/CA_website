@@ -203,9 +203,63 @@ body {
   color: #666;
 }
 
+/* Stats Section Styling */
+.stats-section {
+  display: flex;
+  justify-content: space-around;
+  background-color: #2d5468;
+  padding: 20px 10px; /* Reduced padding to make the section smaller */
+  text-align: center;
+  color: white;
+}
+
+/* Individual Stat Box */
+.stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Icons */
+.stat-box i {
+  font-size: 25px; /* Adjusted size slightly */
+  margin-bottom: 5px; /* Reduced space below icon */
+}
+
+/* Numbers */
+.stat-number {
+  font-size: 1.5rem; /* Adjusted to match the smaller section */
+  font-weight: bold;
+  color: white;
+}
+
+/* Dotted Line */
+.dotted-line {
+  width: 50px;
+  border: none;
+  border-top: 2px dotted white;
+  margin: 5px 0; /* Reduced space */
+}
+
+/* Description Text */
+.stat-box p {
+  font-size: 1rem; /* Slightly smaller text */
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .stats-section {
+      flex-direction: column;
+      gap: 10px; /* Reduced gap for a smaller height */
+  }
+}
+
 /* --- Contact Section --- */
 .contact-form {
   max-width: 700px;
+  margin-top: 5px;
   margin-bottom: 20px;
   margin-left: 55vh;
   background: #fff;

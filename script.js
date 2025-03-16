@@ -14,6 +14,30 @@ document.addEventListener('DOMContentLoaded', function() {
     lastScrollY = window.scrollY;
   });
 
+  // Stats section SCRIPT
+
+  document.addEventListener("DOMContentLoaded", function () {
+    let counters = document.querySelectorAll(".count");
+    let speed = 200; // Adjust speed
+
+    counters.forEach(counter => {
+        let updateCount = () => {
+            let target = +counter.getAttribute("data-target");
+            let count = +counter.innerText;
+
+            let increment = target / speed;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + increment);
+                setTimeout(updateCount, 50);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        updateCount();
+    });
+  });
+
   // --- Smooth Scroll ---
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
